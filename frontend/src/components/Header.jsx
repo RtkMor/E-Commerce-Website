@@ -12,22 +12,22 @@ const Header = () => {
       <div className='h-full container mx-auto flex items-center px-4 justify-between'>
 
         {/* Logo */}
-        <div>
+        <div className='flex-1 flex justify-start'>
           <Link to={'/'}>
             <Logo w={100} />
           </Link>
         </div>
 
         {/* Search Bar */}
-        <div className='hidden lg:flex items-center w-full justify-between max-w-sm border rounded-r-full focus-within:shadow-md pl-2'>
+        <div className='hidden lg:flex items-center w-full max-w-sm flex-1 border rounded-r-full focus-within:shadow-md pl-2'>
           <input type='text' placeholder='search product here..' className='w-full outline-none'/>
-          <div className='text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white'>
+          <div className='text-lg min-w-[50px] h-8 bg-red-600 hover:bg-red-800 flex items-center justify-center rounded-r-full text-white'>
             <GrSearch />
           </div>
         </div>
 
         {/* Icons */}
-        <div className='flex items-center gap-7'>
+        <div className='flex items-center gap-3 sm:gap-7 flex-1 justify-end'>
 
           {/* User Icon */}
           <div className='text-3xl cursor-pointer'>
@@ -44,13 +44,14 @@ const Header = () => {
 
           {/* Login Button */}
           <div>
-            <Link to={'/login'} className='px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700'>Login</Link>
+            <Link to={'/login'} className='px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700 ms-1'>Login</Link>
           </div>
 
         </div>
 
       </div>
     </header>
+
   )
 };
 
