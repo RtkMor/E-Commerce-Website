@@ -8,6 +8,22 @@ const ApiSummary = {
     signIn: {
         url: `${backendDomain}/api/signIn`,
         method: "post"
+    },
+    current_user: {
+        url: `${backendDomain}/api/user-details`,
+        method: "get"
+    },
+    logout: {
+        url: `${backendDomain}/api/logout`,
+        method: "get"
+    },
+    allUsers: {
+        url: `${backendDomain}/api/all-users`,
+        method: "get"
+    },
+    updateUser: {
+        url: `${backendDomain}/api/update-user`,
+        method: "post"
     }
 }
 

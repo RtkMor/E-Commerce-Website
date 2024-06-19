@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import loginIcon from '../assets/sign_in.gif';
+
 import ApiSummary from '../common/ApiSummary.jsx';
+import Context from '../context/index.jsx';
 
 const Login = () => {
+
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -13,14 +16,12 @@ const Login = () => {
 
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const { fetchUserDetails } = useContext(Context);
 
-    const handleOnChange = (e) => {
+    const handleOnChange = useCallback((e) => {
         const { name, value } = e.target;
-        setData((prev) => ({
-            ...prev,
-            [name]: value
-        }));
-    };
+        setData((prev) => ({ ...prev, [name]: value }));
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,9 +43,11 @@ const Login = () => {
             }
 
             setError(null);
+            
+            fetchUserDetails();
+            
             toast.success('Login successfully!');
             navigate('/');
-
             setData({
                 email: "",
                 password: ""

@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
 import { RiImageEditFill } from "react-icons/ri";
+import Compressor from 'compressorjs';
 
 import loginIcon from '../assets/sign_in.gif';
-import imageTobase64 from '../helpers/imageTobase62.jsx';
+import imageTobase62 from '../helpers/imageTobase62.jsx';
 import ApiSummary from '../common/ApiSummary.jsx';
 
 const Register = () => {
@@ -21,34 +22,33 @@ const Register = () => {
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleOnChange = (e) => {
+  const handleOnChange = useCallback((e) => {
     const { name, value } = e.target;
-    setData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+    setData(prev => ({ ...prev, [name]: value }));
+  }, []);
 
-  const handleProfilePic = async (e) => {
+  const handleProfilePic = useCallback((e) => {
     const file = e.target.files[0];
     if (file) {
-      const imagePic = await imageTobase64(file);
-      setData(prev => ({
-        ...prev,
-        profilePic: imagePic
-      }));
+      new Compressor(file, {
+        quality: 0.6,
+        success: async (compressedFile) => {
+          const imagePic = await imageTobase62(compressedFile);
+          setData(prev => ({ ...prev, profilePic: imagePic }));
+        },
+        error: (err) => {
+          console.error('Compression error:', err);
+        }
+      });
     }
-  };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch(ApiSummary.signUp.url, {
         method: ApiSummary.signUp.method,
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
@@ -70,7 +70,6 @@ const Register = () => {
         mobileNumber: "",
         profilePic: ""
       });
-
     } catch (error) {
       setError(error.message);
     }

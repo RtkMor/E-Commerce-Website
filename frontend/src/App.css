@@ -1,0 +1,37 @@
+.customShadow {
+    box-shadow: 5px 0px 5px rgba(231, 50, 50, 0.831);
+}
+
+
+/* All Users Table Design */
+.usersTable {
+    @apply bg-white text-center w-full table-auto shadow-lg rounded-xl overflow-hidden;
+}
+
+.usersTable th, .usersTable td {
+    @apply border px-4 py-2;
+}
+
+.usersTable th {
+    @apply bg-red-800 text-white text-base font-medium;
+}
+
+.usersTable td {
+    @apply text-base;
+}
+
+.usersTable tr:nth-child(even) {
+    @apply bg-gray-100;
+}
+
+.usersTable tr:hover {
+    @apply bg-red-600 text-white;
+}
+
+.usersTable td:first-child {
+    @apply rounded-l-lg;
+}
+
+.usersTable td:last-child {
+    @apply rounded-r-lg;
+}
