@@ -24,6 +24,22 @@ const ApiSummary = {
     updateUser: {
         url: `${backendDomain}/api/update-user`,
         method: "post"
+    },
+    uploadProduct: {
+        url: `${backendDomain}/api/upload-product`,
+        method: "post"
+    },
+    allProducts: {
+        url: `${backendDomain}/api/get-product`,
+        method: "get"
+    },
+    updateProduct: {
+        url: `${backendDomain}/api/update-product`,
+        method: "post"
+    },
+    deleteProduct: {
+        url: `${backendDomain}/api/delete-product`,
+        method: "post"
     }
 }
 

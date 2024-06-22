@@ -1,6 +1,7 @@
 const userModel = require('../models/userModel')
 
 async function allUsersController(req, res) {
+    
     try {
 
         const usersData = await userModel.find();

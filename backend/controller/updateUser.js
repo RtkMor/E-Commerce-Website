@@ -24,7 +24,7 @@ async function updateUserController(req, res) {
         
     } catch (error) {
         res.status(500).json({
-            message: error.message || "Internal serveer problem!",
+            message: error.message || "Internal server problem!",
             error: true,
             success: false
         })

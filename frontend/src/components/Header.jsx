@@ -93,7 +93,7 @@ const Header = () => {
               <div className='text-3xl cursor-pointer' onClick={handleMenuDisplay}>
                 {
                   user?.profilePic ? (
-                    <img src={user.profilePic} className='min-w-10 min-h-10 w-10 h-10 rounded-full border-red-600 border-2' alt={user?.name} />
+                    <img src={user.profilePic} className='min-w-10 min-h-10 w-10 h-10 rounded-full border-red-600 border-2 object-cover' alt={user?.name} />
                   ) : (
                     <FaRegCircleUser className='min-w-[35px] min-h-[35px] w-[35px] h-[35px] rounded-full' />
                   )

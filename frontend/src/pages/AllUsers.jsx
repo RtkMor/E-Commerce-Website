@@ -74,6 +74,7 @@ const AllUsers = () => {
 
   return (
     <div className='overflow-x-auto'>
+
       <table className='w-full usersTable'>
         <thead>
           <tr>
@@ -123,6 +124,7 @@ const AllUsers = () => {
       {showChangeUserRoles && (
         <ChangeUserRoles user={selectedUser} onClose={handleClose} onSave={handleSave}/>
       )}
+
     </div>
   );
 };

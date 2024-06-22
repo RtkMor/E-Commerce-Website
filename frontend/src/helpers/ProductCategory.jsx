@@ -1,6 +1,6 @@
-const ProductCategory = [
+const productCategory = [
     {id: 1, label: "Airpodes", value: "airpodes"},
-    {id: 2, label: "Camera", value: "Camera"},
+    {id: 2, label: "Camera", value: "camera"},
     {id: 3, label: "Earphones", value: "earphones"},
     {id: 4, label: "Mobiles", value: "mobiles"},
     {id: 5, label: "Mouse", value: "mouse"},
@@ -13,4 +13,4 @@ const ProductCategory = [
     {id: 12, label: "Watches", value: "watches"},
 ]
 
-export default ProductCategory;
+export default productCategory;
