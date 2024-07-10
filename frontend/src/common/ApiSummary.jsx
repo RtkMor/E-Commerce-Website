@@ -1,4 +1,4 @@
-const backendDomain = "http://localhost:8080"// "https://e-commerce-website-backend-sigma.vercel.app" ;
+const backendDomain = import.meta.env.VITE_BACKEND_DOMAIN ;
 
 const ApiSummary = {
     signUp: {
