@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import productCategory from '../helpers/productCategory.jsx';
+import ProductCategory from '../helpers/ProductCategory.jsx';
 import UploadImage from '../helpers/UploadImage.jsx';
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -201,7 +201,7 @@ const UploadProduct = ({ onClose, intent, product, header, fetchData }) => {
                                     required
                                     className='block w-full mt-1 p-2 bg-red-600 text-white border-2 rounded-md overflow-y-auto outline-none'>
                                     <option value={""} className='bg-white text-black'>-Select Category-</option>
-                                    {productCategory.map((el, index) => (
+                                    {ProductCategory.map((el, index) => (
                                         <option value={el.value} key={index} className='bg-white text-black'>{el.label}</option>
                                     ))}
                                 </select>
