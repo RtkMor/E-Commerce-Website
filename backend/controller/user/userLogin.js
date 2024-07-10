@@ -59,12 +59,14 @@ async function userLoginController(req, res) {
       expiresIn: 60 * 60 * 24 * 30,
     });
 
+    // Configure cookie options
     const tokenOption = {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-      sameSite: "Strict", // Adjust this based on your requirements (Strict, Lax, None)
+      sameSite: "Strict",
     };
 
+    // Set cookie and respond
     res.cookie("token", token, tokenOption).status(200).json({
       data: token,
       success: true,
