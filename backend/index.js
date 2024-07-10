@@ -21,8 +21,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
-    methods: ["POST", "GET"],
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
@@ -34,6 +33,11 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api", router);
+
+// Custom route to respond with "Hello Mor-E-Commerce Website"
+app.get("/", (req, res) => {
+  res.send("Hello Mor-E-Commerce Website");
+});
 
 const PORT = process.env.PORT || 8080;
 

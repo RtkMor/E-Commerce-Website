@@ -1,4 +1,4 @@
-const backendDomain = "https://e-commerce-website-backend-rosy.vercel.app/"
+const backendDomain = import.meta.env.VITE_BACKEND_DOMAIN;
 
 const ApiSummary = {
     signUp: {
