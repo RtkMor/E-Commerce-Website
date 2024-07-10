@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import ROLE from '../common/ROLE.jsx';
+import Roles from '../common/Roles.jsx';
 import ApiSummary from '../common/ApiSummary.jsx';
 import { toast } from 'react-toastify';
 import Context from '../context';
@@ -49,7 +49,7 @@ const ChangeUserRoles = ({ user, onClose, onSave }) => {
   };
 
   const handleSave = () => {
-    if (user._id === loggedUser && userRole === ROLE.GENERAL) {
+    if (user._id === loggedUser && userRole === Roles.GENERAL) {
       setShowConfirmation(true);
     } else {
       updateUserRole();
@@ -85,7 +85,7 @@ const ChangeUserRoles = ({ user, onClose, onSave }) => {
             value={userRole}
             onChange={handleChangeUserRole}
           >
-            {Object.values(ROLE).map(item => (
+            {Object.values(Roles).map(item => (
               <option key={item} value={item} className='bg-white text-black'>
                 {item}
               </option>
