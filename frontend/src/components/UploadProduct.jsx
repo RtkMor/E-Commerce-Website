@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import productCategory from '../helpers/productCategory.jsx';
 import UploadImage from '../helpers/UploadImage.jsx';
 import { FaCloudUploadAlt } from "react-icons/fa";
-import { MdDelete } from "react-icons/md"
+import { MdDelete } from "react-icons/md";
 import DisplayImage from './DisplayImage.jsx';
-import ApiSummary from '../common/ApiSummary.jsx'
-import { toast } from "react-toastify"
+import ApiSummary from '../common/ApiSummary.jsx';
+import { toast } from "react-toastify";
+import { ClipLoader } from 'react-spinners';
 
 const UploadProduct = ({ onClose, intent, product, header, fetchData }) => {
 
@@ -22,6 +23,7 @@ const UploadProduct = ({ onClose, intent, product, header, fetchData }) => {
 
     const [openFullScreenImage, setOpenFullScreenImage] = useState(false);
     const [fullScreenImage, setFullScreenImage] = useState();
+    const [loading, setLoading] = useState(false);
 
     // Handling the form data on change
     const handleOnChange = (e) => {
@@ -50,18 +52,28 @@ const UploadProduct = ({ onClose, intent, product, header, fetchData }) => {
     // handling the pic to be uploaded
     const handleUploadProduct = async (e) => {
         const file = e.target.files[0];
-
-        if(!file) return;
-
-        const uploadImageCloudinary = await UploadImage(file);
-
-        setData(prev => {
-            return {
-                ...prev,
-                productImage: [...prev.productImage, uploadImageCloudinary.url]
-            };
-        });
+    
+        if (!file) return;
+    
+        setLoading(true);
+    
+        try {
+            const uploadImageCloudinary = await UploadImage(file);
+    
+            setData(prev => {
+                return {
+                    ...prev,
+                    productImage: [...prev.productImage, uploadImageCloudinary.url]
+                };
+            });
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            toast.error("Failed to upload image. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
+    
 
     // Upload Button Handler
     const handleUpload = async (e) => {
@@ -133,6 +145,13 @@ const UploadProduct = ({ onClose, intent, product, header, fetchData }) => {
 
     return (
         <div className='fixed z-[100] top-0 bottom-0 right-0 left-0 w-full h-full flex items-center justify-center bg-red-100 bg-opacity-50'>
+
+            {loading && (
+                <div className='absolute z-[200] top-0 bottom-0 right-0 left-0 w-full h-full flex items-center justify-center bg-white bg-opacity-75'>
+                    <ClipLoader size={50} color={"#123abc"} loading={loading} />
+                </div>
+            )}
+
             <div className='w-full h-full max-w-lg max-h-[75%] p-4 bg-white text-black border-red-600 border-2 rounded-lg overflow-hidden'>
                 <h1 className='text-lg font-semibold underline bg-white p-2'>{header}</h1>
                 <div className='mt-2 h-full overflow-y-scroll'>

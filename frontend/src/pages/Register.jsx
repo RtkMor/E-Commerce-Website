@@ -85,8 +85,8 @@ const Register = () => {
             <div className='w-20 h-20 absolute rounded-full border-red-600 border-[3.5px]'>
               <div className='w-full h-full overflow-hidden rounded-full absolute'>
                 <img src={data.profilePic || loginIcon} alt="login icon" className={`w-full h-full object-cover ${data.profilePic ? "scale-[1]" : "scale-[1.12]"}`} />
-                {data.profilePic=="" && <label>
-                  <div className='w-full h-40 absolute top-10 bg-slate-200 hover:bg-slate-300 hover:cursor-pointer text-xs text-center rounde-bottom-full border-t-[3.5px] border-red-600'>
+                {data.profilePic == "" && <label>
+                  <div className='w-full h-40 absolute top-10 bg-slate-200 hover:bg-slate-300 hover:cursor-pointer text-xs text-center rounded-bottom-full border-t-[3.5px] border-red-600'>
                     Upload Pic
                     <input 
                       type="file" 

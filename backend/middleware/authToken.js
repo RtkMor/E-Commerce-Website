@@ -5,8 +5,8 @@ async function authToken(req, res, next) {
         const token = req.cookies?.token;
 
         if(!token){
-            return res.status(200).json({
-                message: "User not login!",
+            return res.status(400).json({
+                message: "Please login first!",
                 error: true,
                 success: false
             });

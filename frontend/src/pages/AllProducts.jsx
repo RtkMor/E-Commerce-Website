@@ -79,7 +79,7 @@ const AllProducts = () => {
       </div>
   
       {/* All Products List */}
-      <div className='h-[calc(100vh-170px)] mt-2 grid gap-4 mx-[10%] grid-cols-1 xs:grid-cols-2 xs:mx-0 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+      <div className='h-[calc(100vh-170px)] mt-2 grid gap-4 mx-[10%] grid-cols-1 xs:grid-cols-2 xs:mx-0 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2 py-2'
            style={{ overflowY: 'scroll', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {productList.map((product, index) => (
           <AdminProductCard

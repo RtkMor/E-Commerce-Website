@@ -9,6 +9,10 @@ import AdminPanel from '../pages/AdminPanel.jsx';
 import AllUsers from '../pages/AllUsers.jsx';
 import AllProducts from '../pages/AllProducts.jsx';
 import Profile from '../pages/Profile.jsx'
+import Cart from '../pages/Cart.jsx'
+import CategoryProduct from '../pages/CategoryProduct.jsx';
+import ProductDetails from '../pages/ProductDetails.jsx';
+import SearchProducts from '../pages/SearchProducts.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,7 +25,11 @@ const router = createBrowserRouter(
         <Route path="users" element={<AllUsers />} />
         <Route path="products" element={<AllProducts />} />
       </Route>
+      <Route path='search/:query' element={<SearchProducts />} />
       <Route path='profile' element={<Profile />} />
+      <Route path='cart' element={<Cart />} />
+      <Route path='product-category/:categoryName' element={<CategoryProduct />} />
+      <Route path='product/:productName/:productId' element={<ProductDetails />} />
     </Route>
   )
 );

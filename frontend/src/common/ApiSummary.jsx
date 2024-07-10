@@ -9,6 +9,14 @@ const ApiSummary = {
         url: `${backendDomain}/api/signIn`,
         method: "post"
     },
+    forgotPassword: {
+        url: `${backendDomain}/api/forgot-password`,
+        method: "post"
+    },
+    checkUser: {
+        url: `${backendDomain}/api/checkUser`,
+        method: "post"
+    },
     current_user: {
         url: `${backendDomain}/api/user-details`,
         method: "get"
@@ -39,6 +47,42 @@ const ApiSummary = {
     },
     deleteProduct: {
         url: `${backendDomain}/api/delete-product`,
+        method: "post"
+    },
+    categoryList: {
+        url: `${backendDomain}/api/get-categoryList`,
+        method: "get"
+    },
+    categoryProducts: {
+        url: `${backendDomain}/api/post-categoryProducts`,
+        method: "post"
+    },
+    searchProduct: {
+        url: `${backendDomain}/api/search-product`,
+        method: "post"
+    },
+    productDetails: {
+        url: `${backendDomain}/api/product-details`,
+        method: "post"
+    },
+    addToCartProduct: {
+        url: `${backendDomain}/api/addToCart`,
+        method: "post"
+    },
+    updateQuantity: {
+        url: `${backendDomain}/api/updateQuantity`,
+        method: "post"
+    },
+    countCartProducts: {
+        url: `${backendDomain}/api/countCartProducts`,
+        method: "get"
+    },
+    sendOtp: {
+        url: `${backendDomain}/api/send-otp`,
+        method: "post"
+    },
+    verifyOtp: {
+        url: `${backendDomain}/api/verify-otp`,
         method: "post"
     }
 }
