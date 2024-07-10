@@ -17,6 +17,8 @@ function App() {
   const mainContainerRef = useRef(null);
   const initialFetch = useRef(true);
 
+  console.log('Backend Domain:', import.meta.env.VITE_BACKEND_DOMAIN);
+
   // Fetch user details
   const fetchUserDetails = async () => {
     const response = await fetch(ApiSummary.current_user.url, {
